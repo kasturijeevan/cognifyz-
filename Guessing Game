@@ -1,0 +1,26 @@
+import random
+
+def guess_number():
+    
+    number_to_guess = random.randint(1, 100)
+    
+    while True:
+        
+        guessing_number = input("Enter your guess: ")
+      
+        if not guessing_number.isdigit():
+            print("Enter a valid number b/w 1 and 100.")
+            continue
+        
+        guessing_number = int(guessing_number)
+        
+        
+        if guessing_number < number_to_guess:
+            print("Hint: Too low")
+        elif guessing_number > number_to_guess:
+            print("Hint: Too high")
+        else:
+            print("Congratulations! You guessed the correct number.")
+            break
+
+guess_number()
