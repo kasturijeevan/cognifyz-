@@ -1,0 +1,36 @@
+def is_valid_email(email):
+  
+    if email.count('@') != 1:
+        return False
+
+
+    local, domain = email.split('@')
+
+
+    if not local or not domain:
+        return False
+
+    if '.' not in domain:
+        return False
+
+    if domain.startswith('.') or domain.endswith('.'):
+        return False
+
+    valid_local_chars = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._%+-")
+    if not all(char in valid_local_chars for char in local):
+        return False
+
+    valid_domain_chars = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-")
+    if not all(char in valid_domain_chars for char in domain):
+        return False
+
+    return True
+
+
+email = input("Enter an email: ").strip()
+
+
+if is_valid_email(email):
+    print(f"{email} is a valid email address.")
+else:
+    print(f"{email} is not a valid email address.")
