@@ -1,0 +1,35 @@
+def add(a,b):
+    return a+b
+
+def substract(a,b):
+    return a-b
+
+def multiply(a,b):
+    return a*b
+
+def divide(a,b):
+    return a/b
+
+operation_dictionary={"+":add,"-":substract,
+                      
+                      "*":multiply,"/":divide}
+a=int(input("Enter the first number: "))
+
+b=int(input("Enter the second number: "))
+
+for operator in operation_dictionary:
+    
+    print(operator)
+    
+    
+    
+cal_operator=input("Pick an operation to perform: ")
+
+cal_function=operation_dictionary[cal_operator]
+
+result=cal_function(a,b)
+
+print("result: ")
+
+print(f"{a} {cal_operator} {b} = {result}")
+
